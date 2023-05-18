@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>[Thảo luận] Thêm chức năng Pagination</title>
+	<link rel="stylesheet" type="text/css" href="../css/forum.css">
+    <link rel="stylesheet" href="../public/fonts/fontawesome-free-6.3.0-web/css/all.min.css">
+</head>
+<body>
+	<div class="container">
+        <h1> [Thảo luận] Thêm chức năng Pagination</h1>
+        <p>Hôm nay mình sẽ hướng dẫn các bạn làm một trong những chức năng khá phổ biến trên các trang web hiện nay đó là pagination.
+            Pagination hay còn gọi là phân trang, là quá trình phân chia tài liệu thành các trang riêng biệt, hoặc trang điện tử hoặc trang in.
+            Tuy bài này không có gì gọi là quá mới lạ hay khác biệt nhưng mình sẽ viết một cách tận tình và chu đáo mong các bạn xem đầy đủ và kỹ càng.</p>
+        <p>Ý tưởng cái này cũng đơn giản thôi thì như các bạn đã biết thì bây giờ mình sẽ tạo một trang page chứa chứa tất cả sản phẩm đúng không nào. Nhưng bây giờ nếu như chúng ta có 200 sản phẩm mà chỉ đặt chúng lên một trang thì đó không phải là cách tối ưu và trải nghiệm người dùng không được tốt. Nên chúng ta sẽ sử dụng kỹ thuật phân trang(pagination).
+
+            Hướng để làm cái thì mình bắt buộc phải có sản phẩm(data) gì đó rồi mới làm phân trang cho nó đúng không nào. Bây giờ mình muốn phân làm 4 trang mỗi trang 16 sản phẩm(data) thế là chúng ta cần phải tạo 64 sản phẩm à tạo khi nào cho xong nên ta cần phải fake data cho chúng.
+            
+            Bài này mình chỉ hướng dẫn các bạn làm về pagination nên mới fake data chớ vào thực tế thì các bạn phải tạo sản phẩm đầy đủ nha.
+            Sau khi mà fake data thì đây là bước quan trọng nhất đó là phân trang các bạn xem tiếp để biết thêm chi tiết nha. Đó cũng chính là ý tưởng của mình và bây giờ chúng ta sẽ biến ý tưởng thành hiện thực.</p>
+        <img src="https://res.cloudinary.com/dxxbnrmtx/image/upload/v1590681277/layout_tjgvzh.png" alt="Awesome" width="750px" height="500px">
+        <p>Sau khi chúng ta đã test thành công bằng cách gửi dữ liệu về, bây giờ ta cần làm là biến chúng thành những giao diện đẹp mắt.
+            Thay vì res.send để trả về dữ liệu theo dạng json thì bây giờ chúng ta sẽ thay đổi thành res.render để trả về dữ liệu dưới dạng html nha.Trong file index_product.ejs ta sẽ code giao diện pagination cho nó. Trước tiên mình sẽ phải include thằng header và footer vào cái đã, để mà có thể hiển thị được sản phẩm ta chỉ cần lặp qua rồi chia cột cho nó là được. Nếu muốn hiển thị 3 sản phẩm thì col-4 còn muốn hiển thị 4 sản phẩm thì col-3 có thể thôi ấy mà.
+            Tiếp đến phần khá là quan trọng đó là phân trang. Và đây là kết quả khi chúng ta đã hoàn thành pagination cho nó.</p>
+        <img src="https://res.cloudinary.com/dxxbnrmtx/image/upload/v1594995872/Untitled_qy9jpg.png" alt="Awesome" width="750px" height="500px">
+        <a href="">Người Đăng: Nguyễn Cao Luận</a>
+        <hr>
+		<form>
+			<div class="form-input">
+				<label for="name">Tên:</label>
+				<input type="text" id="name" name="name">
+			</div>
+
+			<div class="form-input">
+				<label for="comment">Bình luận:</label>
+				<textarea id="comment" name="comment"></textarea>
+			</div>
+
+			<div class="form-input">
+				<input type="button" value="Gửi" onclick="addComment()">
+			</div>
+		</form>
+
+		<div id="comment-section">
+		</div>
+	</div>
+
+	<script src="../js/myforum.js"></script>
+</body>
+<footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>DIỄN ĐÀN</h4>
+        <p>Forum được xây dựng giúp người dùng tìm kiếm thông tin và hướng giải quyết mọi vấn đề mà bạn đang gặp khó khăn. Đem đến thông tin mới nhất và đáng tin cậy trong mọi lĩnh vực, giúp mọi người giao lưu, trò chuyện, kết bạn và học hỏi. </p>
+      </div>
+      <div class="footer-column">
+        <h4>Liên hệ</h4>
+        <ul>
+          <li><i class="fa fa-map-marker"></i> 223 Hoàng Hoa Thám, Ba Đình, Hà Nội</li>
+          <li><i class="fa fa-phone"></i> 0981222186</li>
+          <li><i class="fa fa-envelope"></i> ncluan0604@gmail.com</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Kết Nối</h4>
+        <ul class="social-media">
+          <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</html>
